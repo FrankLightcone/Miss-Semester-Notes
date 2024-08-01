@@ -324,3 +324,28 @@ object/branch
 ##### Git远程仓库
 远程仓库是指存放在网络服务器上的Git仓库，可以在多台电脑上协同开发。
 ![alt text](image-18.png)
+由于每次`push`都需要带上远程仓库的地址，非常麻烦，可以使用`git remote add 仓库别名 仓库地址`命令来简化操作。
+例如：
+- `git remote add origin https://github.com/FrankLightcone/Miss-Semester-Notes.git`
+如果要删除这个别名，可以使用：
+- `git remote remove origin`
+
+想要将本地仓库的内容推送到远程仓库，可以使用：
+- `git push origin master`，`origin`是远程仓库的别名，`master`是要推送的分支。
+- `git push origin --all`：推送所有分支
+
+如果想要将远程仓库的内容拉取到本地仓库，可以使用：
+- `git pull origin master`，`origin`是远程仓库的别名，`master`是要拉取的分支。
+- `git pull origin --all`：拉取所有分支
+- `git pull`：拉取当前分支
+- `git pull --rebase`：拉取并合并
+- `git pull --rebase origin master`：拉取并合并指定分支
+- `git pull --rebase origin --all`：拉取并合并所有分支
+
+##### 克隆仓库
+如果想要将远程仓库的内容克隆到本地，可以使用：
+- `git clone 仓库地址`，`仓库地址`是远程仓库的地址。
+
+
+### Git命令大全
+![alt text](image-19.png)
