@@ -210,4 +210,9 @@ git add .
 查看所有提交的日志记录：
 - `git log`
 运行命令效果如下：
-
+![alt text](image-1.png)
+如果想查看最近一次提交的内容：
+- `git show`
+日志很多，想要简化查看：
+- `git log --oneline`
+![alt text](image-2.png)
