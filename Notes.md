@@ -216,3 +216,16 @@ git add .
 日志很多，想要简化查看：
 - `git log --oneline`
 ![alt text](image-2.png)
+
+##### Git版本回退
+- `git reset --hard HEAD^`：回退到上一个版本
+- `git reset --hard 版本号`：回退到指定版本
+- `git reflog`：查看命令历史，可以找到版本号
+```shell
+(base) PS E:\Education\课程项目\Asset\MIT-Missing-Semester> git reflog
+bf8187a (HEAD -> master) HEAD@{0}: commit: 添加Git部分命令
+a6b3cc4 HEAD@{1}: commit (initial): 添加Git学习部分
+(base) PS E:\Education\课程项目\Asset\MIT-Missing-Semester>
+```
+其中`(HEAD -> master)`表示当前版本，`HEAD@{0}`表示当前版本，`HEAD@{1}`表示上一个版本。
+`commit(initial)`表示初始提交，`commit`表示普通提交。
