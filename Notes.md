@@ -295,3 +295,32 @@ object/branch
 ##### 合并分支时的冲突问题
 当创建新分支后右在主分支上进行了修改并提交（例如修改了`login.html`文件），并在新分支上也修改了`login.html`文件并提交，那么在合并分支时就会出现冲突。
 我们需要进行抉择：采用主分支的、新分支的、或者两者的结合。
+
+##### Git分支流程图详解
+不管在什么分支下，版本号是通用货币，每开辟一个分支，相当于在版本树上新增一个记录节点。
+现在只有`master`分支，`HEAD`指向`master`分支，`master`分支指向最新的提交。
+![alt text](image-7.png)
+为当前版本创建一个新的分支`reg`
+![alt text](image-8.png)
+切换到`reg`分支进行开发，`HEAD`指向`reg`分支，`reg`分支指向最新的提交。
+![alt text](image-9.png)
+在`reg`分支上提交了新的代码，`reg`分支指向最新的提交。
+![alt text](image-10.png)
+又在`reg`分支上提交了新的代码，`reg`分支指向最新的提交。
+![alt text](image-11.png)
+切换到主分支上，`HEAD`指向`master`分支：
+![alt text](image-12.png)
+合并`reg`分支到`master`分支，`master`分支指向`reg`最新的一次提交：
+![alt text](image-13.png)
+从某一版本号开始，`master`分支修改并提交了新的代码，而`reg`分支也修改并提交了新的代码：
+![alt text](image-14.png)
+此时想要将`reg`分支合并到`master`分支，就会出现冲突：
+![alt text](image-15.png)
+手动解决了冲突后，在`master`分支上提交了新的代码（产生了新的版本号）：
+![alt text](image-16.png)
+删除了`reg`分支，开发过程结束：
+![alt text](image-17.png)
+
+##### Git远程仓库
+远程仓库是指存放在网络服务器上的Git仓库，可以在多台电脑上协同开发。
+![alt text](image-18.png)
