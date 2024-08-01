@@ -259,3 +259,39 @@ css/style.css
 其中`*`表示当前分支。
 - `git checkout <branchname>`：切换到指定分支
 第一次创建并切换到新的分支，可以发现工作区里的代码和新的分支的代码一样。我们可以在此基础上进行开发，而不影响主分支。
+
+这里就是新的分支开发了。哈哈哈哈哈哈哈。
+如果我们查看`.git`目录，可以发现其版本树结构：
+```
+object/master
+  / commit1 a6b3cc4
+  / commit2 bf8187a
+  ...
+object/branch
+  / commit1 a8b3do9
+  / commit2 ut8r34a
+  ...
+```
+![alt text](image-4.png)
+
+###### 合并分支
+当我们在新的分支上开发完成后，我们可以将新的分支合并到主分支上。
+首先，我们需要切换到目标分支上：
+- `git checkout master`
+切换分支后，`HEAD`指针位置如下：
+![alt text](image-5.png)
+合并分支：
+- `git merge <branchname>`
+- 合并后效果如图：
+![alt text](image-6.png)
+可见，`master`分支已经包含了`branch`分支下最新一次提交的代码。且版本号与`branch`分支下最新一次提交的版本号一样。
+
+##### 分支删除
+加入某个分支开发完毕，代码已经合并到主分支，那么可以删除该分支：
+- `git branch -d <branchname>`
+如果分支没有合并到主分支，Git会提示无法删除分支。如果需要强行删除分支，可以使用：
+- `git branch -D <branchname>`
+
+##### 合并分支时的冲突问题
+当创建新分支后右在主分支上进行了修改并提交（例如修改了`login.html`文件），并在新分支上也修改了`login.html`文件并提交，那么在合并分支时就会出现冲突。
+我们需要进行抉择：采用主分支的、新分支的、或者两者的结合。
